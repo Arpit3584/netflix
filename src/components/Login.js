@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword ,signInWithEmailAndPassword, updateProfi
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-
+import { USER_AVATAR, bg_image } from "../utils/constants";
 
 
 const Login = () => {
@@ -38,8 +38,11 @@ const handleButtonClick=()=>
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
+          console.log("the user is",user);
+          const pUrl=USER_AVATAR;
+          console.log("photo url is",pUrl);
           updateProfile(user,{
-            displayName:name,photoURL:"https://avatars.githubusercontent.com/u/44154349?v=4"
+            displayName:name,photoURL:USER_AVATAR
           }).then(
             ()=>{
            const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -81,7 +84,7 @@ const handleButtonClick=()=>
           // Signed in 
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
+         // navigate("/browse");
 
           // ...
         })
@@ -99,7 +102,7 @@ const handleButtonClick=()=>
     
     <div className="absolute">
     <img
-src="https://assets.nflxext.com/ffe/siteui/vlv3/855ed6e2-d9f1-4afd-90da-96023ec747c3/85eb5b91-25ed-4965-ace9-ba8e4a0ead8d/IN-en-20230828-popsignuptwoweeks-perspective_alpha_website_large.jpg"/>
+src={bg_image}/>
     </div>
     <Header/>
     <form onSubmit={(e)=>e.preventDefault()}className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white bg-center content-center bg-opacity-80"  >
