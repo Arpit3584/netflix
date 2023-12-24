@@ -4,7 +4,7 @@ import { API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
 
 const useMovieTrailer=(movieId)=>
-{
+{  
     const dispatch=useDispatch();
     const getMovieVideos=async()=>
     {

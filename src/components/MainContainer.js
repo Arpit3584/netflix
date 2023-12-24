@@ -5,6 +5,7 @@ import VideoBackground from './VideoBackground'
 
 const MainContainer = () => {
 const movies=useSelector(store=>store.movies?.nowPlayingMovies)
+console.log("inside mainContainer",movies);
 //difference between undefined and null
 //why this conition?
 
